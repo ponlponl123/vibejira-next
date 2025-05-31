@@ -9,18 +9,17 @@ export type JiraOptions = {
 
 class JiraService {
     private instance: AxiosInstance;
-    private baseUrl: string;
-    private auth: string;
 
-    constructor ( baseUrl: string, auth: string )
-    {
-        this.baseUrl = baseUrl;
-        this.auth = auth;
+    constructor() {
+        const baseUrl = process.env.JIRA_BASE_URL;
+        const auth = process.env.JIRA_PAT;
+
+        if (!baseUrl || !auth) throw Error("BaseURL and Auth are required, Please provide both in evironment variables.");
 
         this.instance = axios.create({
-            baseURL: this.baseUrl + '/rest/api/2/',
+            baseURL: baseUrl + '/rest/api/2/',
             headers: {
-                'Authorization': this.auth,
+                'Authorization': auth,
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             }
@@ -36,19 +35,19 @@ class JiraService {
     public async searchIssues(jql: string, options: JiraOptions = {}) {
         try {
             const params = {
-              jql: jql,
-              fields: options.fields || 'summary,status,issuetype,priority,created,updated,assignee,labels',
-              expand: 'renderedFields',
-              maxResults: options.maxResults || 50,
-              startAt: options.startAt || 0,
-              validateQuery: 'strict',
+                jql: jql,
+                fields: options.fields || 'summary,status,issuetype,priority,created,updated,assignee,labels',
+                expand: 'renderedFields',
+                maxResults: options.maxResults || 50,
+                startAt: options.startAt || 0,
+                validateQuery: 'strict',
             };
             const response = await this.instance.get('/search', { params });
             return response.data;
-          } catch (error: AxiosError | any) {
+        } catch (error: AxiosError | any) {
             console.error('JIRA API Error (searchIssues):', error.response ? error.response.data : error.message);
             throw new Error(`Failed to search JIRA issues: ${error.message}`);
-          }
+        }
     }
 
     /**
