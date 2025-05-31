@@ -75,4 +75,4 @@ A web application to display and interact with JIRA tickets.
 ## Roadmap
 
 - [ ] Refactor Code base
-- [ ] Dockerimage support
+- [x] Dockerimage support
