@@ -1,0 +1,24 @@
+/* Code block style */
+pre {
+    display: block;
+
+    margin: 0.32rem;
+    padding: 0.64rem 0.96rem;
+
+    border: 1px solid rgb(var(--foreground), 0);
+    border-radius: 12px;
+    
+    background-color: rgb(var(--foreground), 0.12);
+
+    font-size: 12px;
+    font-family: monospace;
+    font-weight: normal;
+
+    cursor: text;
+}
+/* Code block focus style */
+pre:not([disable-default-hover]):hover,
+pre:not([disable-default-focus]):focus {
+    border-color: rgb(var(--foreground), 0.1);
+    background-color: rgb(var(--foreground), 0.06);
+}
