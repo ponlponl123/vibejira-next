@@ -60,6 +60,18 @@ A web application to display and interact with JIRA tickets.
     bun ./next/standalone/server.js
     ```
 
+    ### OR Build and run production server with Automate Script
+
+    For Windows
+    ```ps1
+    ./build-test.ps1
+    ```
+
+    For Linux/Mac
+    ```bash
+    ./build-test.sh
+    ```
+
 ## Roadmap
 
 - [ ] Refactor Code base
