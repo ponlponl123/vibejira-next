@@ -1,4 +1,5 @@
 import JiraService from "@/utils/jira";
+import { JiraIssue } from "@/types/jira";
 import { AxiosError } from "axios";
 import { NextApiRequest } from "next";
 
@@ -16,13 +17,7 @@ export async function GET(req: NextApiRequest) {
         let assigneeFilterJql = '';
         if (activeAssigneeFilter === 'avinash') assigneeFilterJql = ' AND assignee = "Potnuru, Avinash"';
         else if (activeAssigneeFilter === 'marzieh') assigneeFilterJql = ' AND assignee = "Berenjkoub, Marzieh"';
-        else if (activeAssigneeFilter === 'me') assigneeFilterJql = ' AND assignee = "Patinyasakdikul, Arm"';        interface JiraIssue {
-            fields: {
-                labels: string[];
-                status: { name: string };
-                priority?: { name: string };
-            };
-        }
+        else if (activeAssigneeFilter === 'me') assigneeFilterJql = ' AND assignee = "Patinyasakdikul, Arm"';
 
         // Build a single consolidated JQL query
         const combinedJql = `${defectTypeForCards} AND (
