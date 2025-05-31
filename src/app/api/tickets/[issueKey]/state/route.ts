@@ -2,9 +2,12 @@ import JiraService from "@/utils/jira";
 import { AxiosError } from "axios";
 import { NextApiRequest } from "next";
 
-export async function PUT(req: NextApiRequest) {
+export async function PUT(
+    req: NextApiRequest,
+    { params }: { params: Promise<{ issueKey: string }> }
+) {
     try {
-        const { issueKey } = req.query;
+        const { issueKey } = await params;
 
         // Expected: 'pending', 'completed', 'moreInfo', 'rejected', 'nri'
         const { targetState } = req.body;

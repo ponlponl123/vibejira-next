@@ -1,10 +1,12 @@
-import JiraService from "@/utils/jira";
 import { AxiosError } from "axios";
-import { NextApiRequest } from "next";
+import JiraService from "@/utils/jira";
 
-export async function GET(req: NextApiRequest) {
+export async function GET(
+    req: Request,
+    { params }: { params: Promise<{ issueKey: string }> }
+) {
     try {
-        const { issueKey } = req.query;
+        const { issueKey } = await params;
 
         if (!issueKey)
             return Response.json({ message: 'Missing issue key' }, { status: 401 });
@@ -23,10 +25,13 @@ export async function GET(req: NextApiRequest) {
     }
 }
 
-export async function POST(req: NextApiRequest) {
+export async function POST(
+    req: Request,
+    { params }: { params: Promise<{ issueKey: string }> }
+) {
     try {
-        const { issueKey } = req.query;
-        const { body } = req.body;
+        const { issueKey } = await params;
+        const { body } = await req.json();
 
         if (!issueKey)
             return Response.json({ message: 'Missing issue key' }, { status: 401 });
