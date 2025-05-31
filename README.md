@@ -31,8 +31,9 @@ A web application to display and interact with JIRA tickets.
 
 ## Usage
 
-- **Development**
+- **For Development**
 
+    just run the dev script provided in package.json:
     ```bash
     npm run dev
     ```
@@ -44,30 +45,19 @@ A web application to display and interact with JIRA tickets.
     bun dev
     ```
 
-- **Production**
+- **For Production**
 
-    Let's build next.js first with:
+    Nextjs Output config has set output to standalone for Dockerimage, so you can run this via Docker or Kubernetes or ever you want.
+
+    If you want to run this on your computer via Terminal or something else, you need to manually copy `public` directory and `.next/static` then put it into `.next/standalone` directory.
+
+    Then run the production server with this command
     ```bash
-    npm run build
+    node ./next/standalone/server.js
     ```
     or using bun
     ```bash
-    bun run build
-    ```
-    ```bash
-    bun build
-    ```
-
-    Then start the production server:
-    ```bash
-    npm run start
-    ```
-    or using bun
-    ```bash
-    bun run start
-    ```
-    ```bash
-    bun start
+    bun ./next/standalone/server.js
     ```
 
 ## Roadmap

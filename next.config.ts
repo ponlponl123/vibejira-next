@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
+import { NextConfig } from 'next';
 import { version } from './package.json';
 
-const nextConfig = {
+export const nextConfig: NextConfig = {
   publicRuntimeConfig: {
     version,
-  }
-};
+  },
+  output: 'standalone'
+}
 
-module.exports = nextConfig;
+export default nextConfig;
