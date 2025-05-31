@@ -16,6 +16,7 @@ html.dark:root {
 }
 
 body {
+    min-height: 100vh;
     color: rgb(var(--foreground));
     background-color: rgb(var(--background));
 }
