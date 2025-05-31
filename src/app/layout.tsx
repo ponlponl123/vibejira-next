@@ -8,7 +8,7 @@ import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
-import Navbar from "@/components/navbar";
+import Header from "@/components/header";
 
 export const metadata: Metadata = {
   title: {
@@ -47,7 +47,7 @@ export default function RootLayout({
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen">
-            <Navbar />
+            <Header />
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
               {children}
             </main>
@@ -57,7 +57,7 @@ export default function RootLayout({
                 <Link
                   isExternal
                   color="primary"
-                  className="flex items-center gap-1 text-primary text-xs"
+                  className="flex items-center gap-1 font-semibold text-primary text-xs"
                   href="https://github.com/thananon/vibejira"
                   title="VibeJira Github"
                 >

@@ -11,6 +11,13 @@ A web application to display and interact with JIRA tickets.
 *   A JIRA Cloud instance
 *   A JIRA Personal Access Token (PAT) - See [Atlassian Documentation](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/) on how to create one. You'll need permissions to read/write JIRA issues.
 
+## Screenshot
+
+- Dark theme
+    ![Screenshot](./docs/images/Screenshot_31-5-2025_22343_localhost.jpeg)
+- Light theme
+    ![Screenshot](./docs/images/Screenshot_31-5-2025_2240_localhost.jpeg)
+
 ## Installation
 
 - **with node package manager**

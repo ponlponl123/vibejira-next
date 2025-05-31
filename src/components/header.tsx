@@ -10,7 +10,7 @@ import {
 import { siteConfig } from "@/config/site";
 import clsx from "clsx";
 
-function Navbar() {
+function Header() {
   const [isNavOpen, setIsNavOpen] = React.useState(false);
   const nav_section_className = "w-full flex gap-4 items-center";
 
@@ -54,4 +54,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Header;

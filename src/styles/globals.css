@@ -20,9 +20,8 @@ body {
     background-color: rgb(var(--background));
 }
 
-* {
-    color: rgb(var(--foreground));
-    transition: .24s cubic-bezier(0.165, 0.84, 0.44, 1);
+*:not(.disabled-default-transition, [data-slot="popover"]) {
+    transition: .24s cubic-bezier(0.165, 0.84, 0.44, 1)
 }
 
 /* Tailwind Responsive Media not working, Manually styling instead */
